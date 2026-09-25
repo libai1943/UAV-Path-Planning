@@ -180,14 +180,21 @@ The generated figures provide an intuitive view of how the optimization algorith
 
 ## Citation
 
-If this repository is useful for your research, please cite the associated work:
+If you find this repository useful for your research, please cite the following paper:
 
-```text
-Unmanned Combat Aerial Vehicles Path Planning Using a Novel Probability
-Density Model Based on Artificial Bee Colony Algorithm.
-```
+> B. Li, L. Gong, and C. Zhao, "Unmanned combat aerial vehicles path planning using a novel probability density model based on artificial bee colony algorithm," in *2013 Fourth International Conference on Intelligent Control and Information Processing (ICICIP)*, Beijing, China, 2013, pp. 620–625.
 
-Detailed publication information can be found in the papers included in this repository.
+### BibTeX
+
+```bibtex
+@inproceedings{li2013ucav,
+  title={Unmanned combat aerial vehicles path planning using a novel probability density model based on artificial bee colony algorithm},
+  author={Li, Bai and Gong, Liang and Zhao, Chao},
+  booktitle={2013 Fourth International Conference on Intelligent Control and Information Processing (ICICIP)},
+  pages={620--625},
+  year={2013},
+  organization={IEEE}
+}
 
 ## License
 
