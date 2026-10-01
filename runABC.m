@@ -1,4 +1,3 @@
-qwe
 global radar1
 global radar2
 global R
