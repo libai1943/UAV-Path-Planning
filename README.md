@@ -1,5 +1,7 @@
 # UAV Path Planning · ABC and PSO
 
+[Download ZIP](https://github.com/libai1943/UAV-Path-Planning/archive/refs/heads/master.zip) · [Getting started](#start-here) · [Guide](#code-architecture) · [Citation](#citation)
+
 Four runnable implementations of a numerical path-planning example: **MATLAB, Python, C++, and Julia**. A path crosses a synthetic two-dimensional risk field, balancing exposure against distance. Artificial Bee Colony (ABC) is the default optimizer; Particle Swarm Optimization (PSO) provides a comparison on the same scene.
 
 ![An actual ABC run](docs/abc_path.png)
@@ -71,6 +73,17 @@ julia julia/RunMe.jl --algorithm pso --iterations 500 --seed 1
 
 Results are written to julia/results/. Open path.svg in a browser. Only Julia's Random standard library is used.
 
+## Compare two paths without overwriting the first run
+
+Run both Python optimizers with the same scene, seed and iteration budget. Give each run its own directory so you can open the plots side by side.
+
+```bash
+python python/RunMe.py --algorithm abc --iterations 500 --seed 1 --output results/abc --no-show
+python python/RunMe.py --algorithm pso --iterations 500 --seed 1 --output results/pso --no-show
+```
+
+In each directory, `path.png` shows where the route approaches a source. Read the final `cost` in `convergence.csv` to compare the discrete objectives. Each row is a best-so-far value. The two algorithms use different population sizes, so equal iteration counts do not imply equal numbers of objective evaluations.
+
 ## Model and defaults
 
 The start is (0,0) and the goal is (500,0). Thirty interior nodes have fixed longitudinal positions x_i = 500 i / 31; their lateral coordinates are the decision variables, bounded by -50 <= y_i <= 50. Sixteen sources define the synthetic field. Source j, centered at c_j with radius parameter R_j, contributes:
@@ -133,7 +146,7 @@ Both algorithms have been run for 500 iterations in all four languages: MATLAB R
 
 Please cite:
 
-> Bai Li, Ligang Gong, and Chunhui Zhao, “Unmanned Combat Aerial Vehicles Path Planning Using a Novel Probability Density Model Based on Artificial Bee Colony Algorithm,” *2013 Fourth International Conference on Intelligent Control and Information Processing (ICICIP)*, pp. 620–625, 2013.
+> Bai Li, Ligang Gong, and Chunhui Zhao, “Unmanned Combat Aerial Vehicles Path Planning Using a Novel Probability Density Model Based on Artificial Bee Colony Algorithm,” *2013 Fourth International Conference on Intelligent Control and Information Processing (ICICIP)*, pp. 620–625, 2013. [Publisher record](https://doi.org/10.1109/ICICIP.2013.6568149).
 
 ~~~bibtex
 @inproceedings{li2013ucav,
@@ -142,7 +155,8 @@ Please cite:
   booktitle = {2013 Fourth International Conference on Intelligent Control and Information Processing (ICICIP)},
   pages = {620--625},
   year = {2013},
-  organization = {IEEE}
+  organization = {IEEE},
+  doi = {10.1109/ICICIP.2013.6568149}
 }
 ~~~
 
